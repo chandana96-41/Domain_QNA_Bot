@@ -1,7 +1,8 @@
 """RAG question answering using Ollama chat + Chroma retrieval."""
 from typing import List, Tuple
 
-from langchain_community.vectorstores import Chroma
+# To this:
+from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 

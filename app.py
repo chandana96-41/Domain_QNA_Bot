@@ -22,7 +22,7 @@ with st.sidebar:
     st.header("Settings")
     ollama_base = st.text_input("Ollama URL", value="http://127.0.0.1:11434")
     embed_model = st.text_input("Embedding model", value="nomic-embed-text", help="Run: ollama pull nomic-embed-text")
-    chat_model = st.text_input("Chat model", value="llama3.2", help="Run: ollama pull llama3.2")
+    chat_model = st.text_input("Chat model", value="qwen2.5:1.5b", help="Run: ollama pull qwen2.5:1.5b")
     top_k = st.slider("Chunks to retrieve", min_value=1, max_value=12, value=4)
 
     st.divider()
