@@ -1,5 +1,5 @@
 """
-Domain RAG chatbot: upload documents, index with Ollama embeddings, chat with Ollama LLM.
+Smart Document Q&A chatbot: upload documents, index with Ollama embeddings, chat with Ollama LLM.
 Run: streamlit run app.py
 """
 import os
@@ -12,11 +12,26 @@ from rag.ingest import clear_index, ingest_files
 from rag.chat import answer_question, get_vectorstore
 from rag.ollama_health import require_models
 
-st.set_page_config(page_title="Domain RAG (Ollama)", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Smart Document Q&A", page_icon="📚", layout="wide")
 ensure_dirs()
 
-st.title("Domain Q&A with RAG")
-st.caption("Upload manuals, PDFs, or text. Index them, then ask questions. Uses Ollama on your machine.")
+st.title("Smart Document Q&A Assistant")
+with st.expander("📖 How to use this chatbot"):
+    st.markdown("""
+    **Follow these steps:**
+
+    1. Upload a PDF or text document from the sidebar.
+    2. Click **Index uploaded documents**.
+    3. Wait until the message says **Index ready — you can chat.**
+    4. Ask a question related to your uploaded document.
+    5. The chatbot will retrieve relevant information and generate an answer.
+
+    **Example questions:**
+    - What is this document about?
+    - Summarize the main points.
+    - Explain the important concepts.
+    """)
+
 
 with st.sidebar:
     st.header("Settings")
